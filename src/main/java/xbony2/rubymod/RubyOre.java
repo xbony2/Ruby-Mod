@@ -2,8 +2,11 @@ package xbony2.rubymod;
 
 import java.util.Random;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
@@ -16,7 +19,6 @@ public class RubyOre extends Block{
 		this.setResistance(5.0F);
 		this.setStepSound(soundTypePiston);
 		this.setBlockName("oreRuby");
-		this.setBlockTextureName("bonyrubymod:rubyblock");
 	}
 
 	@Override
@@ -24,5 +26,9 @@ public class RubyOre extends Block{
 		return RubyMod.rubyGem;
 	}
 	
-	
+	@Override
+	@SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister register){
+		blockIcon = register.registerIcon("bonyrubymod" + ":" + "rubyblock");
+	}
 }
