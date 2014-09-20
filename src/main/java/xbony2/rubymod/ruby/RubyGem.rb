@@ -2,8 +2,8 @@
 require 'java'
 
 class RubyGem
-  extend net.minecraft.item.Item
-  def RubyGem()
+  include net.minecraft.item.Item
+  def initialize()
     super
     setCreativeTab(CreativeTabs.tabMaterials)
     setTextureName("bonyrubymod:rubygem")
