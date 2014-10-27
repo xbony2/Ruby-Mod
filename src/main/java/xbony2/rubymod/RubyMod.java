@@ -1,14 +1,12 @@
 package xbony2.rubymod;
 
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-
-import org.jruby.embed.LocalVariableBehavior;
-import org.jruby.embed.ScriptingContainer;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
+
+import org.jruby.Ruby;
+import org.jruby.RubyClass;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -25,16 +23,14 @@ public class RubyMod {
 	public static Item rubyGem;
 	
 	private final String rubyGemDirectory = "xbony2/rubymod/ruby/";
-	
-	private ScriptEngine jruby;
+	private final Ruby ruby = Ruby.newInstance();
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event){
+		RubyClass rclass = ruby.getClass(rubyGemDirectory + "RubyGem.rb");
+		
 		rubyOre = new RubyOre(Material.iron);
-		jruby = new ScriptEngineManager().getEngineByName("jruby");
-		//ruby = new ScriptingContainer(LocalVariableBehavior.PERSISTENT);
-		//ruby.put("main", this);
-		rubyGem = new RubyGem();
+		//rubyGem = new RubyGem();
 		
 		GameRegistry.registerBlock(rubyOre, "RubyOre");
 		GameRegistry.registerItem(rubyGem, "RubyGem");
