@@ -1,5 +1,8 @@
 package xbony2.rubymod;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+
 import org.jruby.embed.LocalVariableBehavior;
 import org.jruby.embed.ScriptingContainer;
 
@@ -23,11 +26,12 @@ public class RubyMod {
 	
 	private final String rubyGemDirectory = "xbony2/rubymod/ruby/";
 	
-	private ScriptingContainer ruby;
+	private ScriptEngine jruby;
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event){
 		rubyOre = new RubyOre(Material.iron);
+		jruby = new ScriptEngineManager().getEngineByName("jruby");
 		//ruby = new ScriptingContainer(LocalVariableBehavior.PERSISTENT);
 		//ruby.put("main", this);
 		rubyGem = new RubyGem();

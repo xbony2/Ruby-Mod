@@ -1,8 +1,7 @@
 # RubyGem.rb
 require 'java'
 
-class RubyGem
-  include net.minecraft.item.Item
+class RubyGem  < net.minecraft.item.Item
   def initialize()
     super
     setCreativeTab(CreativeTabs.tabMaterials)
@@ -10,6 +9,7 @@ class RubyGem
     setUnlocalizedName("gemRuby")
   end
   
+  public
   def registerIcons(register)
     itemIcon = register.registerIcon("bonyrubymod" + ":" + "rubygem")
   end
