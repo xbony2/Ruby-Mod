@@ -1,7 +1,7 @@
 # RubyGem.rb
 require 'java'
 
-class RubyGem  < net.minecraft.item.Item
+class RubyGem < net.minecraft.item.Item
   def initialize()
     super
     setCreativeTab(CreativeTabs.tabMaterials)
