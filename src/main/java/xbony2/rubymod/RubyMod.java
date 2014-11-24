@@ -34,14 +34,14 @@ public class RubyMod {
 	public static ScriptEngine jruby;
 	
 	@EventHandler
-	public void init(FMLInitializationEvent event) throws FileNotFoundException, ScriptException{
-		jruby = new ScriptEngineManager().getEngineByName("jruby");
+	public void init(FMLInitializationEvent event){
+		//jruby = new ScriptEngineManager().getEngineByName("jruby");
 		//jruby.eval(new BufferedReader(new FileReader(rubyDirectory + "RubyGem.rb")));
 		//rubyGem = (Item) jruby.eval("RubyGem.new");
 		
-		rubyOre = new RubyOre(Material.iron);
+		//rubyOre = new RubyOre(Material.iron);
 		
-		GameRegistry.registerBlock(rubyOre, "RubyOre");
-		GameRegistry.registerItem(rubyGem, "RubyGem");
+		//GameRegistry.registerBlock(rubyOre, "RubyOre");
+		//GameRegistry.registerItem(rubyGem, "RubyGem");
 	}
 }
