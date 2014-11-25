@@ -1,7 +1,9 @@
 # RubyGem.rb
 require 'java'
 
-class RubyGem < net.minecraft.item.Item
+java_package 'xbony2.rubymod.ruby'
+
+class rubymod.ruby.RubyGem < net.minecraft.item.Item
   def initialize()
     super
     setCreativeTab(CreativeTabs.tabMaterials)
